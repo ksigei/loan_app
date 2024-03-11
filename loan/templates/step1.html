@@ -4,7 +4,18 @@
 <h2>Step 1: Business Details</h2>
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
-    {{ form.as_p }}
+    <div class="form-group">
+        <label for="id_name">Business Name:</label>
+        <input type="text" class="form-control" id="id_name" name="name">
+    </div>
+    <div class="form-group">
+        <label for="id_description">Description:</label>
+        <textarea class="form-control" id="id_description" name="description" rows="3"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="id_certificate_details">Certificate Details:</label>
+        <input type="file" class="form-control-file" id="id_certificate_details" name="certificate_details">
+    </div>
     <button type="submit" class="btn btn-primary">Next</button>
 </form>
 {% endblock %}

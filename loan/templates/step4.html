@@ -4,7 +4,18 @@
 <h2>Step 4: Loan Application</h2>
 <form method="post">
     {% csrf_token %}
-    {{ form.as_p }}
+    <div class="form-group">
+        <label for="id_amount">Amount:</label>
+        <input type="text" class="form-control" id="id_amount" name="amount">
+    </div>
+    <div class="form-group">
+        <label for="id_purpose">Purpose:</label>
+        <input type="text" class="form-control" id="id_purpose" name="purpose">
+    </div>
+    <div class="form-group">
+        <label for="id_repayment_start_time">Repayment Start Time:</label>
+        <input type="text" class="form-control" id="id_repayment_start_time" name="repayment_start_time">
+    </div>
     <button type="submit" class="btn btn-primary">Submit Application</button>
 </form>
 {% endblock %}
