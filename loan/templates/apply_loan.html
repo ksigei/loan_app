@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <!-- Step 1: Business Details -->
+    <div class="step" id="step1">
+        {% include 'step1.html' %}
+        <button type="button" onclick="nextStep(1)">Next</button>
+    </div>
+    <!-- Step 2: Loan Details -->
+    <div class="step" id="step2" style="display: none;">
+        {% include 'step2.html' %}
+        <button type="button" onclick="prevStep(2)">Previous</button>
+        <button type="button" onclick="nextStep(2)">Next</button>
+    </div>
+    <!-- Step 3: Repayment Details -->
+    <div class="step" id="step3" style="display: none;">
+        {% include 'step3.html' %}
+        <button type="button" onclick="prevStep(3)">Previous</button>
+        <button type="submit">Submit Application</button>
+    </div>
+</form>
+
+<script>
+    function nextStep(step) {
+        document.getElementById('step' + step).style.display = 'none';
+        document.getElementById('step' + (step + 1)).style.display = 'block';
+    }
+
+    function prevStep(step) {
+        document.getElementById('step' + step).style.display = 'none';
+        document.getElementById('step' + (step - 1)).style.display = 'block';
+    }
+</script>
+{% endblock %}

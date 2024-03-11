@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <h1 class="display-4">Welcome to Your Loan Application Platform</h1>
+        <p class="lead">Apply for small business loans easily and efficiently.</p>
+        <a class="btn btn-primary btn-lg" href="{% url 'step1' %}" role="button">Apply Now</a>
+      </div>
+      <div class="col-lg-6">
+        <!-- Insert Hero Image or Illustration -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features Section -->
+<section class="features">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="feature-icon">
+          <i class="fas fa-check-circle"></i>
+        </div>
+        <h3>Quick Approval Process</h3>
+        <p>Get your loan application approved quickly with our streamlined process.</p>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-icon">
+          <i class="fas fa-money-bill-wave"></i>
+        </div>
+        <h3>Flexible Loan Options</h3>
+        <p>Choose from a variety of loan options tailored to your business needs.</p>
+      </div>
+      <div class="col-md-4">
+        <div class="feature-icon">
+          <i class="fas fa-shield-alt"></i>
+        </div>
+        <h3>Secure Transactions</h3>
+        <p>Rest assured that your transactions are secure and encrypted.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials Section -->
+<section class="testimonials">
+  <div class="container">
+    <h2 class="text-center mb-5">What Our Customers Say</h2>
+    <div id="testimonial-carousel" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="testimonial">
+            <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus vitae felis eu lorem rutrum pulvinar."</p>
+            <p class="author">- John Doe, CEO</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="testimonial">
+            <p>"Sed accumsan erat vitae lacus congue, vel ultrices ipsum posuere. Nulla facilisi."</p>
+            <p class="author">- Jane Smith, Founder</p>
+          </div>
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#testimonial-carousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#testimonial-carousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>
+</section>
+{% endblock %}
