@@ -1,21 +1,52 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h2>Step 1: Business Details</h2>
-<form method="post" enctype="multipart/form-data">
-    {% csrf_token %}
-    <div class="form-group">
-        <label for="id_name">Business Name:</label>
-        <input type="text" class="form-control" id="id_name" name="name">
-    </div>
-    <div class="form-group">
-        <label for="id_description">Description:</label>
-        <textarea class="form-control" id="id_description" name="description" rows="3"></textarea>
-    </div>
-    <div class="form-group">
-        <label for="id_certificate_details">Certificate Details:</label>
-        <input type="file" class="form-control-file" id="id_certificate_details" name="certificate_details">
-    </div>
-    <button type="submit" class="btn btn-primary">Next</button>
-</form>
+<div class="container mt-5">
+    <h1 class="mb-4">Step 1: Business Information</h1>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="id_name" class="form-label">Name</label>
+            {{ form.name }}
+        </div>
+        <div class="mb-3">
+            <label for="id_description" class="form-label">Description</label>
+            {{ form.description }}
+        </div>
+        <div class="mb-3">
+            <label for="id_certificate_details" class="form-label">Certificate Details</label>
+            {{ form.certificate_details }}
+        </div>
+        <div class="mb-3">
+            <label for="id_business_type" class="form-label">Business Type</label>
+            {{ form.business_type }}
+        </div>
+        <div class="mb-3">
+            <label for="id_revenue" class="form-label">Revenue</label>
+            {{ form.revenue }}
+        </div>
+        <div class="mb-3">
+            <label for="id_founding_date" class="form-label">Founding Date</label>
+            {{ form.founding_date }}
+        </div>
+        <div class="mb-3">
+            <label for="id_website" class="form-label">Website</label>
+            {{ form.website }}
+        </div>
+        <div class="mb-3">
+            <label for="id_email" class="form-label">Email</label>
+            {{ form.email }}
+        </div>
+        <div class="mb-3">
+            <label for="id_phone_number" class="form-label">Phone Number</label>
+            {{ form.phone_number }}
+        </div>
+        <!-- Custom file input for certificate details -->
+        <div class="mb-3">
+            <label for="id_certificate_details" class="form-label">Upload Certificate Details</label>
+            <input type="file" class="form-control" id="id_certificate_details" name="certificate_details">
+        </div>
+        <button type="submit" class="btn btn-primary">Next</button>
+    </form>
+</div>
 {% endblock %}

@@ -1,4 +1,3 @@
-# In loans/views.py
 from django.shortcuts import render, redirect
 from .forms import BusinessForm, BankInformationForm, CreditCardInformationForm, LoanApplicationForm
 

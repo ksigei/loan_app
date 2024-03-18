@@ -3,9 +3,26 @@ from django.contrib.auth.models import User
 
 class Business(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    name = models.CharField(max_length=100)
-    description = models.TextField()
-    certificate_details = models.FileField(upload_to='certificate_details/')
+    name = models.CharField(max_length=100, verbose_name="Business Name")
+    description = models.TextField(verbose_name="Business Description")
+    certificate_details = models.FileField(upload_to='certificate_details/', verbose_name="Certificate Details")
+    locations = models.ManyToManyField('BusinessLocation', related_name='businesses', verbose_name="Business Locations")
+    business_type = models.CharField(max_length=50, verbose_name="Business Type")
+    revenue = models.DecimalField(max_digits=12, decimal_places=2, null=True, blank=True, verbose_name="Annual Revenue")
+    founding_date = models.DateField(null=True, blank=True, verbose_name="Founding Date")
+    website = models.URLField(max_length=200, blank=True, verbose_name="Business Website")
+    email = models.EmailField(max_length=254, blank=True, verbose_name="Business Email")
+    phone_number = models.CharField(max_length=20, blank=True, verbose_name="Business Phone Number")
+
+    def __str__(self):
+        return self.name
+
+class BusinessLocation(models.Model):
+    name = models.CharField(max_length=100, verbose_name="Location Name")
+    address = models.CharField(max_length=255, verbose_name="Address")
+    city = models.CharField(max_length=100, verbose_name="City")
+    state = models.CharField(max_length=100, verbose_name="State")
+    country = models.CharField(max_length=100, verbose_name="Country")
 
     def __str__(self):
         return self.name
@@ -20,6 +37,8 @@ class BankInformation(models.Model):
 class CreditCardInformation(models.Model):
     business = models.ForeignKey(Business, on_delete=models.CASCADE)
     card_number = models.CharField(max_length=20)
+    cvv = models.CharField(max_length=4)
+    expiry_date = models.DateField()
 
     def __str__(self):
         return f"Credit Card Information for {self.business.name}"
